@@ -1,6 +1,5 @@
 #!/usr/bin/env bash
 set -e
-unset CDPATH
 
 if [ "$1" = "--debug" ]; then
   export PYENV_DEBUG=1
@@ -22,7 +21,8 @@ abort() {
 
 if enable -f "${BASH_SOURCE%/*}"/../libexec/pyenv-realpath.dylib realpath 2>/dev/null; then
   abs_dirname() {
-    local path="$(realpath "$1")"
+    local path
+    path="$(realpath "$1")"
     echo "${path%/*}"
   }
 else
@@ -36,9 +36,10 @@ else
   }
 
   abs_dirname() {
-    local cwd="$PWD"
     local path="$1"
 
+    # Use a subshell to avoid changing the current path
+    (
     while [ -n "$path" ]; do
       cd "${path%/*}"
       local name="${path##*/}"
@@ -46,7 +47,7 @@ else
     done
 
     pwd
-    cd "$cwd"
+    )
   }
 fi
 
@@ -68,15 +69,22 @@ if [ -z "${PYENV_DIR}" ]; then
     export PYENV_DIR
     unset PYENV_FILE_ARG
   fi
-fi
-
-if [ -z "${PYENV_DIR}" ]; then
-  PYENV_DIR="$PWD"
 else
+  [[ $PYENV_DIR == /* ]] || PYENV_DIR="$PWD/$PYENV_DIR"
   cd "$PYENV_DIR" 2>/dev/null || abort "cannot change working directory to \`$PYENV_DIR'"
   PYENV_DIR="$PWD"
   cd "$OLDPWD"
 fi
+
+if [ -z "${PYENV_DIR}" ]; then
+  PYENV_DIR="$PWD"
+fi
+
+if [ ! -d "$PYENV_DIR" ] || [ ! -e "$PYENV_DIR" ]; then
+  abort "cannot change working directory to \`$PYENV_DIR'"
+fi
+
+PYENV_DIR=$(cd "$PYENV_DIR" && echo "$PWD")
 export PYENV_DIR
 
 
@@ -118,7 +126,13 @@ case "$command" in
   ;;
 * )
   command_path="$(command -v "pyenv-$command" || true)"
-  [ -n "$command_path" ] || abort "no such command \`$command'"
+  if [ -z "$command_path" ]; then
+    if [ "$command" == "shell" ]; then
+      abort "shell integration not enabled. Run \`pyenv init' for instructions."
+    else
+      abort "no such command \`$command'"
+    fi
+  fi
 
   shift 1
   if [ "$1" = --help ]; then

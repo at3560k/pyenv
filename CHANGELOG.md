@@ -1,8 +1,137 @@
 ## Version History
 
-## Unreleased
+## 1.2.7
 
-* python-build: Add CPython 3.6.0rc1
+* python-build: Add CPython 3.5.6 (#1199)
+* python-build: Add CPython 3.4.9
+
+## 1.2.6
+
+* python-build: Added CPython 3.6.6 (#1178)
+* python-build: Check wget version iff wget is going to be used (#1180)
+
+## 1.2.5
+
+* python-build: Add CPython 3.7.0 (#1177)
+* python-build: Add micropython 1.9.4 (#1160)
+* python-build: Add anaconda[23]-5.2.0 (#1165)
+* pyenv: Fix `seq(1)` is not available on OpenBSD (#1166)
+
+## 1.2.4
+
+* python-build: Add CPython 2.7.15
+* python-build: Add PyPy 6.0.0
+* python-build: Allow overriding HTTP client type based on environment variable `PYTHON_BUILD_HTTP_CLIENT` (#1126)
+* python-build: Use version-specific `get-pip.py` when installing 2.6 and 3.2 (#1131)
+* pyenv: Merge rbenv master (#1151)
+* pyenv: Make `pyenv-rehash` safer for multiple processes (#1092)
+
+## 1.2.3
+
+* python-build: Add CPython 3.6.5
+* python-build: Set openssl PKG_CONFIG_PATH for python 3.7 (#1117)
+* python-build: Add ActivePython versions 2.7.14, 3.5.4, 3.6.0 (#1113)
+* python-build: Unset `PIP_VERSION` before invoking `get-pip.py` as a workaround for `invalid truth value` error (#1124)
+
+## 1.2.2
+
+* python-build: Add PyPy3 5.10.1 (#1084)
+* python-build: Add CPython 3.5.5 (#1090)
+* python-build: Add Anaconda[23]-5.1.0 (#1100)
+* python-build: Fix checksum issue for CPython 3.4.8 (#1094)
+* python-build: Prevent Anaconda from installing a `clear` shim (#1084)
+## 1.2.1
+
+* python-build: Add CPython 3.6.4
+* python-build: Add PyPy[23] 5.10
+
+## 1.2.0
+
+* python-build: Import changes from ruby-build v20171031 (#1026)
+* python-build: Ignore LibreSSL bundled with macOS 10.13 (#1025)
+* python-build: Skip passing `--enable-unicode` to CPython 3.3+ (#912)
+* python-build: Add CPython 3.3.7 (#1053)
+* python-build: Add micropython 1.9.3
+* python-build: Add PyPy 5.9.0
+* python-build: Add Miniconda[23] 4.3.14, 4.3.21, 4.3.27, 4.3.30
+* python-build: Add Anaconda[23] 5.0.1
+* python-build: Update Anaconda[23] 5.0.0 to 5.0.0.1 bugfix release
+
+## v1.1.5
+
+* python-build: Add CPython 3.6.3
+* python-build: Add CPython 3.7.0a1
+* python-build: Add Anaconda[23] 5.0.0
+
+## v1.1.4
+
+* pyenv: Workaround for scripts in `$PATH` which needs to be source'd (#100, #688, #953)
+* python-build: Add support for PyPy3 executables like `libpypy3-c.so` (#955, #956)
+* python-build: Add CPython 2.7.14, 3.4.7, 3.5.4 (#965, #971, #980)
+* python-build: Add Jython 2.7.1 (#973)
+
+## v1.1.3
+
+* python-build: Add CPython 3.6.2 (#951)
+
+## v1.1.2
+
+* pyenv: Fix incorrect `pyenv --version` output in v1.1.1 (#947)
+
+## v1.1.1
+
+* python-build: Update links to Portable Pypy 5.8-1 bugfix release, affects pypy2.7-5.8.0 and pypy3.5-5.8.0 definitions (#939)
+
+## v1.1.0
+
+* python-build: Add PyPy 5.7.1 (#888)
+* pyenv: Merge rbenv master (#927)
+* python-build: Add PyPy 5.8.0 (#932)
+* python-build: Anaconda[23] 4.4.0
+* python-build: Add micropython-dev
+
+## 1.0.10
+
+* python-build: Add Anaconda2/Anaconda3 4.3.1 (#876)
+* python-build: Make miniconda-latest point to miniconda2-latest (#881)
+* python-build: Fix typo in MacOS packages for anaconda2-4.3.0/4.2.0 (#880)
+
+## 1.0.9
+
+* pyenv: Migrate project site from https://github.com/yyuu/pyenv to https://github.com/pyenv/pyenv
+* python-build: Add PyPy2 5.7.0 (#872, #868)
+* python-build: Add PyPy3 5.7.0-beta (#871, #869)
+* python-build: Add CPython 3.6.1 (#873)
+* python-build: Add Pyston 0.6.1 (#859)
+* python-build: Change default mirror site URL from https://yyuu.github.io/pythons to https://pyenv.github.io/pythons
+* python-build: Upgrade OpenSSL from 1.0.2g to 1.0.2k (#850)
+
+## 1.0.8
+
+* pyenv: Fix fish subcommand completion (#831)
+* python-build: Add Anaconda2/Anaconda3 4.3.0  (#824)
+* python-build: Use CPython on GitHub as the source repository of CPython development versions (#836, #837)
+* python-build: Fix checksum verification issue on the platform where OpenSSL isn't available (#840)
+
+## 1.0.7
+
+* python-build: Add CPython 3.5.3 (#811)
+* python-build: Add CPython 3.4.6 (#812)
+* python-build: Fix tar.gz checksum of CPython 3.6.0 (#793)
+* python-build: Jython installer workaround (#800)
+* python-build: Disable optimization (`-O0`) when `--debug` was specified (#808)
+
+## 1.0.6
+
+* python-build: Add CPython 3.6.0 (#787)
+
+## 1.0.5
+
+* python-build: Add CPython 2.7.13 (#782)
+* python-build: Add CPython 3.6.0rc2 (#781)
+* python-build: Add Anaconda 4.2.0 (#774)
+* python-build: Add Anaconda3 4.2.0 (#765)
+* python-build: Add IronPython 2.7.7 (#755)
 
 ## 1.0.4
 
@@ -114,12 +243,12 @@
 
 * pyenv: Merge recent changes from rbenv as of 2015-12-14 (#504)
 * python-build: Add a `OPENSSL_NO_SSL3` patch for CPython 2.6, 2.7, 3.0, 3.1, 3.2 and 3.3 series (#507, #511)
-* python-build: Stopped using mirror at yyuu.github.io for CPython since http://www.python.org is on fast.ly
+* python-build: Stopped using mirror at pyenv.github.io for CPython since http://www.python.org is on fast.ly
 
 ### 20151210
 
 * pyenv: Add a default hook for Anaconda to look for original `$PATH` (#491)
-* pyenv: Skip virtualenv aliases on `pyenv versions --skip-aliases` (yyuu/pyenv-virtualenv#126)
+* pyenv: Skip virtualenv aliases on `pyenv versions --skip-aliases` (pyenv/pyenv-virtualenv#126)
 * python-build: Add CPython 2.7.11, 3.5.1 (#494, #498)
 * python-build: Update OpenSSL to 1.0.1q (#496)
 * python-build: Adding SSL patch to build 2.7.3 on Debian (#495)
@@ -136,7 +265,7 @@
 ### 20151105
 
 * python-build: Add anaconda2-2.4.0 and anacondaa3-2.4.0
-* python-biuld: Add Portable PyPy 4.0 (#472)
+* python-build: Add Portable PyPy 4.0 (#472)
 
 ### 20151103
 
@@ -149,7 +278,7 @@
 * pyenv: Different behaviour when invoking .py script through symlink (#379, #404)
 * pyenv: Enabled Gitter on the project (#436, #444)
 * python-build: Add Jython 2.7.1b1
-* python-build: Install OpenSSL on OS X if no proper versionn is available (#429)
+* python-build: Install OpenSSL on OS X if no proper version is available (#429)
 
 ### 20150913
 
@@ -226,12 +355,12 @@
 #### 20150124
 
 * python-build: Import recent changes from ruby-build v20150112
-* python-build: Prevent adding `/Library/Python/X.X/site-packages` to `sys.path` whtn `--enable-framework` is enabled on OS X. Thanks @s1341 (#292)
+* python-build: Prevent adding `/Library/Python/X.X/site-packages` to `sys.path` when `--enable-framework` is enabled on OS X. Thanks @s1341 (#292)
 * python-build: Add new IronPython release; 2.7.5
 
 #### 20141211
 
-* pyenv: Add bulit-in `pip-rehash` feature. You don't need to install [pyenv-pip-rehash](https://github.com/yyuu/pyenv-pip-rehash) anymore.
+* pyenv: Add built-in `pip-rehash` feature. You don't need to install [pyenv-pip-rehash](https://github.com/pyenv/pyenv-pip-rehash) anymore.
 * python-build: Add new CPython release; 2.7.9 (#284)
 * python-build: Add new PyPy releases; pypy3-2.4.0, pypy3-2.4.0-src (#277)
 * python-build: Add build definitions of PyPy nightly build
@@ -343,7 +472,7 @@
 * python-build: Do not exit with errors even if some of modules are absent (#131)
 * python-build: MacOSX was misspelled as MaxOSX in `anaconda_architecture` (#136)
 * python-build: Use default `cc` as the C Compiler to build CPython (#148, #150)
-* python-build: Display value from `pypy_architecture` and `anaconda_architecture` on errors (yyuu/pyenv-virtualenv#18)
+* python-build: Display value from `pypy_architecture` and `anaconda_architecture` on errors (pyenv/pyenv-virtualenv#18)
 * python-build: Remove old development version; 2.6-dev
 * python-build: Update default setuptools version (3.3 -> 3.4.1)
 
@@ -397,7 +526,7 @@
 * python-build: Activate friendly CPython during build if the one is not activated (8fa6b4a1847851919ad7857c6c42ed809a4d277b)
 * python-build: Fix broken install.sh
 * python-build: Import recent changes from ruby-build v20131225.1
-* version-ext-compat: Removed from default plugin. Please use [pyenv-version-ext](https://github.com/yyuu/pyenv-version-ext) instead.
+* version-ext-compat: Removed from default plugin. Please use [pyenv-version-ext](https://github.com/pyenv/pyenv-version-ext) instead.
 
 #### 0.4.0-20131217
 
